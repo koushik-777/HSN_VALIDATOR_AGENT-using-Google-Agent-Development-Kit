@@ -2,23 +2,12 @@ import pandas as pd
 import re
 from google.adk.agents import Agent
 
-# Data Loading (executed once)
-hsn_df = pd.read_excel("D:\hsn-validator\hsn_validator_agent\HSN_SAC.xlsx")               # Read Excel into DataFrame:contentReference[oaicite:12]{index=12}
+# data loading
+hsn_df = pd.read_excel("D:\hsn-validator\hsn_validator_agent\HSN_SAC.xlsx")             
 hsn_dict = {str(c): d for c, d in zip(hsn_df['\nHSNCode'], hsn_df['Description'])}
 
 def validate_hsn_codes(codes_input: str) -> dict:
-    """
-    Validate one or more HSN codes provided as input.
-    Checks that each code is 2-8 digits and exists in the dataset.
-    Args:
-        codes_input (str): HSN codes separated by commas or spaces.
-    Returns:
-        dict: {
-            "status": "success" or "error",
-            "report": "HSN Code X: Desc. ...",
-            "error_message": "...if error"
-        }
-    """
+
     parts = re.split(r'[\s,;]+', codes_input.strip())
     codes = [p for p in parts if p]
     if not codes:
@@ -43,7 +32,7 @@ def validate_hsn_codes(codes_input: str) -> dict:
     status = "success" if any_success else "error"
     return {"status": status, "report": report}
 
-# Agent Setup
+# Agent 
 root_agent = Agent(
     name="hsn_validator_agent",
     model="gemini-2.0-flash",
