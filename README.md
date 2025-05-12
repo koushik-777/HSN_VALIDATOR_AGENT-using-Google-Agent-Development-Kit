@@ -26,7 +26,7 @@ An AI agent built with Google’s Agent Developer Kit (ADK) that validates Harmo
    ```bash
    pip install google-adk pandas openpyxl
 
-##Repository Structure
+## Repository Structure
 .
 ├── README.md
 ├── agent.py                # Agent and tool configuration (not shown here)
@@ -35,7 +35,7 @@ An AI agent built with Google’s Agent Developer Kit (ADK) that validates Harmo
 └── ...
 
 
-##Configuration
+## Configuration
 
 Agent Name: hsn_validator_agent
 
@@ -44,7 +44,7 @@ Model: gemini-2.0-flash
 Tool: HSNValidator (a custom Tool subclass that loads the Excel file on startup, parses input, and performs both format and existence checks)
 
 
-#How It Works
+## How It Works
 
 On startup, the agent loads the Excel file into a pandas DataFrame, trimming whitespace and storing codes as strings.
 
@@ -64,7 +64,7 @@ In the browser UI, enter one or more HSN codes (for example, 0101, 01012100, 999
 
 The agent responds immediately with descriptions or invalid‑code messages.
 
-##Example Interaction
+## Example Interaction
 
 Input: 0101, 01012100, 9999, abc
 
