@@ -52,7 +52,7 @@ A custom tool (“HSNValidator”) splits user input into individual codes (comm
 
 For every code, the agent returns a line of text: either “<code>: <description>” if found or “<code>: invalid hsn code” otherwise.
 
-##Running the Agent
+##  Running the Agent
 
 Place HSN_Master_Data.xlsx in the project root.
 
